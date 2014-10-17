@@ -14,4 +14,24 @@
  *= require_self
  */
 @import "bootstrap-sprockets";
+
+$brand-primary: #2ecc71;
+$link-color: white;
+$navbar-default-bg: $brand-primary;
+$navbar-default-link-color:  white;
+$navbar-default-link-hover-color: #ddd;
+$headings-font-family: 'Oswald', sans-serif;
+$link-hover-color: white;
+
 @import "bootstrap";
+
+
+
+
+.logo, .article .panel-footer, .article .date, .volver-btn{
+	font-family: $headings-font-family;
+}
+
+.volver-btn{
+	font-size: 30px;
+}

@@ -1,19 +1,77 @@
-<h1>Listing articles</h1>
+<div class="container">
 
-<table>
-  <tr>
-    <th>Title</th>
-    <th>Text</th>
-  </tr>
+  <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+
+    <% @articles.each do |article| %>
+
+    <div class="row">
+
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 article ">
+
+        <div class="panel panel-primary">
+          <div class="panel-heading">
+
+            <%= link_to article do %>
+
+            <h3><%= article.title  %></h3>
+            <p class="text-right date"><%=  article.created_at.strftime("%F - %T ") %></p>
+
+            <% end %>
+
+          </div>
+          <div class="panel-body">
+              <p><%= article.text %></p>
+          </div>
+          <div class="panel-footer">
+              <p class="text-right"><%= pluralize(article.comments.count, "comment") %></p>
+          </div>
+        </div>
 
 
-  <% @articles.each do |article| %>
-    <tr>
-      <td><%= article.title %></td>
-      <td><%= article.text %></td>
-      <td><%= link_to 'Show', article_path(article) %></td>
-      <td><%= link_to 'Edit', edit_article_path(article) %></td>
-      <td><%= link_to 'Destroy', article_path(article), method: :delete, data: { confirm: 'Are you sure?' } %></td>
-    </tr>
-  <% end %>
-</table>
+      </div>
+
+    </div>
+
+    <br>
+
+      <% end %>
+
+  </div>
+
+  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+
+    <h2>Ultimos articulos</h2>
+
+      <% @lastArticles.each do |article| %>
+
+      <div class="row">
+
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+
+          <div class="list-group">
+
+            <%= link_to article, class: "list-group-item" do %>
+
+              <h4 class="list-group-item-heading"><%= article.title %></h4>
+              <p class="list-group-item-text"><%=  article.created_at.strftime("%F - %T ") %></p>
+
+            <% end %>
+
+
+          </div>
+
+        </div>
+
+
+
+      </div>
+
+
+      <% end %>
+
+
+  </div>
+
+</div>
+
+

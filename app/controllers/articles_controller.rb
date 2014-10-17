@@ -3,6 +3,7 @@ class ArticlesController < ApplicationController
 
 	def index
 		@articles = Article.all
+		@lastArticles = Article.all.order('created_at DESC')
 	end
 
 	def new
@@ -34,7 +35,7 @@ class ArticlesController < ApplicationController
 		else
 			render "edit"
 		end
-	end	
+	end
 
 	def destroy
 		@article = Articles.find(params[:id])

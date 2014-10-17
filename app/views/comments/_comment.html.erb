@@ -1,15 +1,11 @@
-<p>
-  <strong>Commenter:</strong>
-  <%= comment.commenter %>
-</p>
- 
-<p>
-  <strong>Comment:</strong>
-  <%= comment.body %>
-</p>
+<div class="well well-lg">
 
-<p>
-  <%= link_to 'Destroy Comment', [comment.article, comment],
-               method: :delete,
-               data: { confirm: 'Are you sure?' } %>
-</p>
+	<p>
+	  <strong><%= comment.commenter %></strong> - <%= comment.created_at.strftime("%F / %T ") %>
+	</p>
+
+	<p>
+	  <%= comment.body %>
+	</p>
+
+</div>
