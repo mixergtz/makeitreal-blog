@@ -1,0 +1,46 @@
+
+<nav class="navbar navbar-default" role="navigation">
+
+	<div class="container">
+
+		<!-- Brand and toggle get grouped for better mobile display -->
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<%= link_to("El nuevo super blog", root_path , class: "navbar-brand logo") %>
+		</div>
+
+		<!-- Collect the nav links, forms, and other content for toggling -->
+		<div class="collapse navbar-collapse navbar-ex1-collapse">
+
+			<ul class="nav navbar-nav navbar-right">
+
+				<% if user_signed_in? %>
+
+					<li><button type="button" class="btn btn-default navbar-btn btn-new-article">
+						<%= link_to new_article_path do %>
+							<span class="glyphicon glyphicon-plus"></span> Nuevo artículo
+						<% end %>
+					</button></li>
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= current_user.email %> <b class="caret"></b></a>
+						<ul class="dropdown-menu">
+							<li><a href="#">Articulos</a></li>
+							<li><%= link_to "Ajustes de cuenta", edit_user_registration_path %></li>
+	 						<li class="divider"></li>
+							<li><%= link_to "Cerrar sesión", destroy_user_session_path, method: :delete %></li>
+						</ul>
+					</li>
+					<li><%= image_tag Gravatar.new(current_user.email).image_url(s: 50), class: "img-rounded" %></li>
+				<% else %>
+					<li><%= link_to "Iniciar sesión", new_user_session_path %></li>
+				<% end %>
+
+			</ul>
+		</div><!-- /.navbar-collapse -->
+	</div>
+</nav>

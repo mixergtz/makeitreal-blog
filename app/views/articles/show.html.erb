@@ -2,10 +2,7 @@
 
 	<div class="col-md-8 col-md-offset-2 article">
 
-		<div class="row ">
-			<%= link_to raw("<span class='glyphicon glyphicon-arrow-left'></span> Volver"), root_path , class: "btn btn-primary volver-btn" %>
 
-		</div>
 
 		<br>
 
@@ -16,7 +13,26 @@
 				<p class="text-right date"><%=  @article.created_at.strftime("%F - %T ") %></p>
 			</div>
 			<div class="panel-body">
-				<p><%= @article.text %></p>
+
+
+				<div class="row">
+
+				  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-center">
+				  	  <%= image_tag Gravatar.new(@article.user.email).image_url(s: 120), class: "img-circle" %>
+				      <strong><%= @article.user.email %></strong>
+				  </div>
+
+				  <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 article-text">
+				      <p><%= @article.text %></p>
+				  </div>
+
+				  <div class="edit-btns">
+				  	<%= link_to raw("<span class='glyphicon glyphicon-pencil'></span>"), edit_article_path(@article)  %>
+				  	<%= link_to raw("<span class='glyphicon glyphicon-trash'></span>"), @article, method: :delete, confirm: "Esta seguro de eliminar este artículo?"   %>
+				  </div>
+
+				</div>
+
 			</div>
 
 		</div>

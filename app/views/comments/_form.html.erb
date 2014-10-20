@@ -1,7 +1,7 @@
 
 
 
-<%= form_for([@article, @article.comments.build]) do |f| %>
+<%= form_for([@article, @article.comments.build], remote: true) do |f| %>
 
   <div class="form-group">
     <%= f.label :commenter %><br>
@@ -13,5 +13,3 @@
   </div>
     <%= f.submit "Enviar comentario", class: "btn btn-primary" %>
 <% end %>
-
-
