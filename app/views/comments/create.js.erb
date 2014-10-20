@@ -1,2 +1,7 @@
-
-$("body").append("<%= j render 'shared/errors', modelo: @comment %>");
+$("#errors_show").remove();
+<% if @comment.errors.any? %>
+  $(".input-form").before("<%= j render 'shared/errors', modelo: @comment %>");
+<% else %>
+  $(".comments").append("<%= j render 'comment', comment: @comment %>");
+  $(".input-form :text, .input-form textarea ").val("");
+<% end %>

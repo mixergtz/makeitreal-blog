@@ -1,8 +1,7 @@
-<div id="error_explanation" class="well">
+<div id="errors_show" class="well well-sm">
     <h2><%= pluralize(modelo.errors.count, "error") %> prohibited this article from being saved:</h2>
-      <ul>
-        <% modelo.errors.full_messages.each do |msg| %>
+      <ol><% modelo.errors.full_messages.each do |msg| %>
           <li><%= msg %></li>
         <% end %>
-      </ul>
+      </ol>
 </div>
