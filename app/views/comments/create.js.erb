@@ -1,7 +1,8 @@
-$("#errors_show").remove();
-<% if @comment.errors.any? %>
-  $(".input-form").before("<%= j render 'shared/errors', modelo: @comment %>");
-<% else %>
+<% if @comment.persisted? %>
   $(".comments").append("<%= j render 'comment', comment: @comment %>");
-  $(".input-form :text, .input-form textarea ").val("");
+  $(".input-form")[0].reset();
+  $("#errors_show").hide();
+<% else %>
+  $("#errors_show").html("<%= j render 'shared/errors', modelo: @comment %>");
+  $("#errors_show").show();
 <% end %>
