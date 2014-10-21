@@ -61,6 +61,7 @@ class ArticlesController < ApplicationController
 
   def redirect_if_not_author
     redirect_to @article unless is_author?
+    # falta el flash
   end
 
 end
