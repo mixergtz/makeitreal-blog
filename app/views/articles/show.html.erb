@@ -1,41 +1,62 @@
 <div class="container">
 
-<div class="col-md-8 col-md-offset-2 article">
-
-<div class="row ">
-	<%= link_to raw("<span class='glyphicon glyphicon-arrow-left'></span> Volver"), root_path , class: "btn btn-primary volver-btn" %>
-
-</div>
-
-<br>
+	<div class="col-md-8 col-md-offset-2 article">
 
 
- <div class="panel panel-primary">
-   <div class="panel-heading">
-     <h3><%= @article.title %></h3>
-     <p class="text-right date"><%=  @article.created_at.strftime("%F - %T ") %></p>
-   </div>
-   <div class="panel-body">
-       <p><%= @article.text %></p>
-   </div>
 
- </div>
+		<br>
 
 
-<hr>
-
-	<h4 class="text-center">Comments for this article</h4>
-	<%= render @article.comments %>
-
-
-	<h4>Add a comment:</h4>
-	<%= render "comments/form" %>
+		<div class="panel panel-primary">
+			<div class="panel-heading">
+				<h3><%= @article.title %></h3>
+				<p class="text-right date"><%=  @article.created_at.strftime("%F - %T ") %></p>
+			</div>
+			<div class="panel-body">
 
 
-	<%= link_to "Back", articles_path %>
-	<%= link_to 'Edit', edit_article_path(@article) %>
+				<div class="row">
 
-</div>
+				  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-center">
+				  	  <%#= image_tag Gravatar.new(@article.user.email).image_url(s: 120), class: "img-circle" %>
+				      <strong><%#= @article.user.email %></strong>
+				  </div>
+
+				  <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 article-text">
+				      <p><%= @article.text %></p>
+				  </div>
+
+				  <div class="edit-btns">
+				  	<%= link_to raw("<span class='glyphicon glyphicon-pencil'></span>"), edit_article_path(@article)  %>
+				  	<%= link_to raw("<span class='glyphicon glyphicon-trash'></span>"), @article, method: :delete, confirm: "Esta seguro de eliminar este artículo?"   %>
+				  </div>
+
+				</div>
+
+			</div>
+
+		</div>
+
+
+
+		<hr>
+
+		<h4 class="text-center">Comments for this article</h4>
+			<div class="comments">
+				<%= render @article.comments %>
+			</div>
+
+		<hr>
+
+		<div class="col-sm-10 col-sm-offset-1">
+			<div id="errors_show" ></div>
+			<h4>Add a comment:</h4>
+				<%= render "comments/form" %>
+
+		</div>
+
+
+	</div>
 
 
 

@@ -1,5 +1,9 @@
-<h1>Editing article</h1>
- 
+ <div class="row ">
+			<%= link_to raw("<span class='glyphicon glyphicon-arrow-left'></span> Volver"), articles_path , class: "btn btn-primary volver-btn" %>
+
+</div>
+
+ <h1>Editar artículo</h1>
+
 <%= render 'form' %>
 
-<%= link_to 'Back', articles_path %>

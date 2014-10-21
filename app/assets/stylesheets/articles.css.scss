@@ -1,3 +1,55 @@
 // Place all the styles related to the articles controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.article {
+
+	.panel-body .row{
+		position: relative;
+
+		.article-text p{
+			padding-right: 30px;
+		}
+	}
+
+	.panel-heading, .panel-footer{
+
+		h3, p{
+
+			margin-top: 0;
+			margin-bottom: 0;
+
+		}
+
+	}
+
+	.edit-btns{
+
+		position: absolute;
+		right: 0;
+		top: 30%;
+		padding: 10px;
+		border: 1px solid #2ecc71;
+		border-right: none;
+		border-radius: 10px 0 0 10px;
+
+		a{
+			color: #333;
+			text-decoration: none;
+		}
+
+
+
+		.glyphicon{
+			display: block;
+			margin-bottom: 10px;
+			font-size: 20px;
+
+			&:hover{
+				color: #237346;
+			}
+		}
+
+	}
+
+}

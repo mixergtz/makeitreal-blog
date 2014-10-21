@@ -20,10 +20,25 @@
 
           </div>
           <div class="panel-body">
-              <p><%= article.text %></p>
+
+
+              <div class="row">
+
+                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-center">
+                    <%#= image_tag Gravatar.new(article.user.email).image_url(s: 120), class: "img-circle" %>
+                    <strong><%#=  article.user.email %></strong>
+                </div>
+
+                <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+                    <p><%= article.text %></p>
+                </div>
+
+              </div>
+
+
           </div>
           <div class="panel-footer">
-              <p class="text-right"><%= pluralize(article.comments.count, "comment") %></p>
+            <p class="text-right"><%= pluralize(article.comments.count, "comment") %></p>
           </div>
         </div>
 
@@ -34,44 +49,66 @@
 
     <br>
 
-      <% end %>
+    <% end %>
 
   </div>
 
   <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
 
-    <h2>Ultimos articulos</h2>
+      <div class="last-articles">
 
-      <% @lastArticles.each do |article| %>
+        <h2>Ultimos articulos</h2>
 
-      <div class="row">
+        <% @last_articles.each do |article| %>
 
-        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+          <div class="row">
 
-          <div class="list-group">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 
-            <%= link_to article, class: "list-group-item" do %>
+              <div class="list-group">
 
-              <h4 class="list-group-item-heading"><%= article.title %></h4>
-              <p class="list-group-item-text"><%=  article.created_at.strftime("%F - %T ") %></p>
+                <%= link_to article, class: "list-group-item" do %>
 
-            <% end %>
+                  <h4 class="list-group-item-heading"><%= article.title %></h4>
+                  <p class="list-group-item-text"><%=  article.created_at.strftime("%F - %T ") %></p>
 
+                <% end %>
 
+              </div>
+            </div>
           </div>
-
-        </div>
-
-
+        <% end %>
 
       </div>
 
+      <div class="most-commented">
 
-      <% end %>
+        <h2>Más comentados</h2>
 
+        <% @last_articles.each do |article| %>
+
+          <div class="row">
+
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+
+              <div class="list-group">
+
+                <%= link_to article, class: "list-group-item" do %>
+
+                  <span class="badge"><%=  article.comments.count %></span>
+                  <h4 class="list-group-item-heading"><%= article.title %></h4>
+                  <p class="list-group-item-text"><%=  article.created_at.strftime("%F - %T ") %></p>
+
+                <% end %>
+
+              </div>
+            </div>
+          </div>
+        <% end %>
+
+      </div>
 
   </div>
-
 </div>
 
 
