@@ -1,5 +1,8 @@
 class ArticlesController < ApplicationController
   before_action :get_article, only: [:show, :edit, :update, :destroy]
+  helper_method :is_author?
+  before_action :authenticate_user!, only: [:edit, :update, :destroy]
+  before_action :redirect_if_not_author, only: [:edit, :update, :destroy]
 
   def index
     @articles = Article.all
@@ -50,6 +53,14 @@ class ArticlesController < ApplicationController
 
   def article_params
     params.require(:article).permit(:title,:text)
+  end
+
+  def is_author?
+    @article.user == current_user
+  end
+
+  def redirect_if_not_author
+    redirect_to @article unless is_author?
   end
 
 end
