@@ -1,8 +1,6 @@
 class ArticlesController < ApplicationController
   before_action :get_article, only: [:show, :edit, :update, :destroy]
 
-  http_basic_authenticate_with name: "dhh", password: "secret", except: [:index, :show]
-
   def index
     @articles = Article.all
     @last_articles = Article.all.order('created_at DESC')
@@ -14,6 +12,7 @@ class ArticlesController < ApplicationController
 
   def create
     @article = Article.new(article_params)
+    @article.user = current_user
     if	@article.save
       redirect_to @article
     else
