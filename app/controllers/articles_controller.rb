@@ -7,6 +7,7 @@ class ArticlesController < ApplicationController
   def index
     @articles = Article.all
     @last_articles = Article.all.order('created_at DESC')
+    @most_commented = Article.most_commented
   end
 
   def new
