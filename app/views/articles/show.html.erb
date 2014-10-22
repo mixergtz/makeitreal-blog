@@ -10,21 +10,22 @@
     <div class="panel panel-primary">
       <div class="panel-heading">
         <h3><%= @article.title %></h3>
-        <p class="text-right date"><%=  @article.created_at.strftime("%F - %T ") %></p>
+        <p class="text-right date">Creado el <%=  @article.created_at.strftime("%F a las %T ") %></p>
       </div>
-      <div class="panel-body">
 
+      <div class="panel-body">
 
         <div class="row">
 
           <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-center">
 
-              <%= image_tag Gravatar.new(@article.user.email).image_url(s: 120), class: "img-circle" %>
-              <p><strong><%= @article.user.name %></strong></p>
+            <%= image_tag Gravatar.new(@article.user.email).image_url(s: 120), class: "img-circle" %>
+            <p><strong><%= @article.user.name %></strong></p>
+
           </div>
 
           <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 article-text">
-              <p><%= @article.text %></p>
+            <p><%= @article.text %></p>
           </div>
 
           <% if is_author? %>
@@ -44,20 +45,20 @@
 
     <hr>
 
-    <h4 class="text-center">Comments for this article</h4>
-      <div class="comments">
-        <%= render @article.comments %>
-      </div>
+    <h4 class="text-center">Comentarios sobre este artículo</h4>
+    <div class="comments">
+      <%= render @article.comments %>
+    </div>
 
     <hr>
 
     <% if user_signed_in? %>
-        <div class="col-sm-10 col-sm-offset-1">
-          <div id="errors_show" ></div>
-          <h4>Add a comment:</h4>
-            <%= render "comments/form" %>
+    <div class="col-sm-10 col-sm-offset-1">
+      <div id="errors_show" ></div>
+      <h4>Agregar un comentario:</h4>
+      <%= render "comments/form" %>
 
-        </div>
+    </div>
     <% end %>
 
 
