@@ -1,8 +1,9 @@
 class ArticlesController < ApplicationController
   before_action :get_article, only: [:show, :edit, :update, :destroy]
   helper_method :is_author?
-  before_action :authenticate_user!, only: [:edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:index, :show]
   before_action :redirect_if_not_author, only: [:edit, :update, :destroy]
+  before_action :is_writer?, only: [:new, :create]
 
   def index
     @articles = Article.all
@@ -33,8 +34,8 @@ class ArticlesController < ApplicationController
   end
 
   def update
-
     if  @article.update(article_params)
+      flash[:notice] = "Artículo actualizado"
       redirect_to @article
     else
       render "edit"
@@ -43,6 +44,7 @@ class ArticlesController < ApplicationController
 
   def destroy
     @article.destroy
+    flash[:alert] = "Artículo eliminado"
     redirect_to articles_path
   end
 
@@ -56,13 +58,22 @@ class ArticlesController < ApplicationController
     params.require(:article).permit(:title,:text)
   end
 
+  def is_writer?
+    unless current_user.is_writer
+      flash[:alert] = "No estas habilitado para crear articulos :("
+      redirect_to articles_path
+    end
+  end
+
   def is_author?
     @article.user == current_user
   end
 
   def redirect_if_not_author
-    redirect_to @article unless is_author?
-    # falta el flash
+    unless is_author?
+      flash[:alert] = "No eres el autor de este artículo"
+      redirect_to @article
+    end
   end
 
 end

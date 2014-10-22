@@ -33,7 +33,7 @@ $btn-default-border: white;
 
 
 
-.logo, .article .panel-footer, .article .date, .volver-btn{
+.logo, .article .panel-footer, .article .date, .volver-btn, .alert{
 	font-family: $headings-font-family;
 
 }
@@ -66,4 +66,22 @@ $btn-default-border: white;
 
 #errors_show{
   color: red;
+}
+
+/*
+
+	FLASH MESSAGES
+
+*/
+.alert{
+	text-align: center;
+	font-size: 18px;
+}
+
+.alert-notice{
+	background-color: $brand-primary;
+}
+
+.alert-alert{
+	background-color: #e74c3c;
 }
