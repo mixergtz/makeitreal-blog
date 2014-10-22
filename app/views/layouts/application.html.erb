@@ -9,21 +9,29 @@
 </head>
 <body>
 
-  <%= render ("layouts/header") %>
+     <%= render ("layouts/navbar") %>
 
-<div class="col-sm-8 col-sm-offset-2">
-  <% flash.each do |name, msg| -%>
-    <%= content_tag :div, msg, class: "alert alert-#{name}" %>
-  <% end %>
-</div>
+  <div id="main">
 
 
-  <div class="container">
-    <%= yield %>
+    <%#= render ("layouts/navbar_medium") %>
+
+    <div class="col-sm-8 col-sm-offset-2">
+      <% flash.each do |name, msg| -%>
+      <%= content_tag :div, msg, class: "alert alert-#{name}" %>
+      <% end %>
+    </div>
+
+      <%= yield %>
+
+    <hr>
+    <div class="footer">
+      <a href="#">Un link</a>
+      <a href="#">Un link</a>
+      <a href="#">Un link</a>
+      <a href="#">Un link</a>
+    </div>
   </div>
-
-
-
 
 </body>
 </html>

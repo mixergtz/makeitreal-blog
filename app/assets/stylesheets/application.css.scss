@@ -15,17 +15,18 @@
  */
 @import "bootstrap-sprockets";
 
-$brand-primary: #2ecc71;
-$dark-green: #237346;
-$link-color: white;
-$navbar-default-bg: $brand-primary;
-$navbar-default-link-color:  white;
+$brand-primary: #2c3e50;
+$dark-green: #2c3e50;
+$midnight-blue: #2c3e50;
+$link-color: $midnight-blue;
+$navbar-default-link-color:  $midnight-blue;
 $navbar-default-link-hover-color: $dark-green;
 $headings-font-family: 'Oswald', sans-serif;
 $link-hover-color: $dark-green;
 $btn-default-bg: $brand-primary;
 $btn-default-color: white;
-$btn-default-border: white;
+$btn-default-border: $midnight-blue;
+$body-bg: white;
 
 
 @import "bootstrap";
@@ -33,7 +34,7 @@ $btn-default-border: white;
 
 
 
-.logo, .article .panel-footer, .article .date, .volver-btn, .alert{
+.logo, .article .panel-footer, .author-info, .volver-btn, .alert{
 	font-family: $headings-font-family;
 
 }
@@ -42,10 +43,18 @@ $btn-default-border: white;
 	text-decoration: none;
 }
 
-.navbar-brand.logo:hover{
-	color: $dark-green;
-}
+/*
 
+	GENERALES
+
+*/
+
+
+.content-title{
+
+	padding: 50px 0 50px 0;
+
+}
 
 .volver-btn{
 	font-size: 30px;
@@ -53,13 +62,21 @@ $btn-default-border: white;
 
 .btn-new-article{
 
+	border-radius: 10px;
+	border-color: white;
+	background-color: transparent;
+
 	a{
-		color: inherit;
 		text-decoration: none;
+		color: white;
+		&:hover{
+			color: $midnight-blue;
+		}
 	}
 
 	&:hover{
-		border-color: $dark-green;
+		color: $midnight-blue;
+		border-color: $midnight-blue;
 	}
 
 }
@@ -67,6 +84,36 @@ $btn-default-border: white;
 #errors_show{
   color: red;
 }
+/*
+
+	NAVBAR
+
+*/
+
+.navbar-brand.logo:hover{
+	color: $dark-green;
+}
+
+.navbar{
+	margin-bottom: 0px;
+	position: absolute;
+	z-index: 2;
+}
+
+#navbar-new{
+	width: 100%;
+	position: absolute;
+	z-index: 2;
+	background-color: rgba(255,255,255,0.5);
+	padding-top: 10px;
+}
+
+.nav-btns li{
+	list-style: none;
+	display: inline;
+}
+
+
 
 /*
 
@@ -76,6 +123,7 @@ $btn-default-border: white;
 .alert{
 	text-align: center;
 	font-size: 18px;
+	margin-top: 80px;
 }
 
 .alert-notice{
@@ -84,4 +132,18 @@ $btn-default-border: white;
 
 .alert-alert{
 	background-color: #e74c3c;
+}
+
+/*
+
+	HOME GALLERY
+
+*/
+
+#main{
+	position: relative;
+
+	.carousel-inner{
+		max-height: 500px;
+	}
 }

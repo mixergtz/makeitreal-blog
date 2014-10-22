@@ -1,0 +1,34 @@
+  <div class="container" id="navbar-new">
+    <div class="col-sm-10 col-sm-offset-1">
+      <%= link_to("El nuevo super blog", root_path , class: "navbar-brand logo") %>
+
+      <div class="nav-btns text-right">
+        <% if user_signed_in? %>
+
+        <% if current_user.is_writer %>
+        <li><button type="button" class="btn btn-new-article">
+          <%= link_to new_article_path do %>
+          <span class="glyphicon glyphicon-plus"></span> Nuevo artículo
+          <% end %>
+        </button></li>
+        <% end %>
+
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= image_tag Gravatar.new(current_user.email).image_url(s: 40), class: "img-circle", title: current_user.name %> <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+
+            <% if current_user.is_writer %>
+            <li><a href="#">Articulos</a></li>
+            <% end %>
+
+            <li><%= link_to "Ajustes de cuenta", edit_user_registration_path %></li>
+            <li class="divider"></li>
+            <li><%= link_to "Cerrar sesión", destroy_user_session_path, method: :delete %></li>
+          </ul>
+        </li>
+        <% else %>
+        <li><%= link_to "Iniciar sesión", new_user_session_path %></li>
+        <% end %>
+      </div>
+    </div>
+  </div>

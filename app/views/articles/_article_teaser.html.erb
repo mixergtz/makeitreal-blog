@@ -1,0 +1,17 @@
+<div class="col-sm-5 single-article">
+
+  <%= link_to article do %>
+
+    <div>
+        <h3><%= article.title  %></h3>
+      <strong><%= pluralize(article.comments.count, "comment") %> </strong>
+    </div>
+    <div >
+      <p><%= truncate(article.text, omission: "...", length: 150) %></p>
+    </div>
+
+  <% end %>
+  <div class="author-info">
+    <p><strong>Por <%= article.user.name %><%= article.created_at.strftime(" el %F a las %T ") %></strong></p>
+  </div>
+</div>
