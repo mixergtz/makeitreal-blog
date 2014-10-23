@@ -2,26 +2,26 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.home-articles{
+	 border-top: 1px solid #7f8c8d;
+}
+
+.home-links{
+	height: 50px;
+	text-align: center;
+	margin-bottom: 10px;
+}
+
+.home-link{
+	padding-top: 5px;
+}
+
+.home-link.active{
+	border-top: 2px solid #7f8c8d;
+}
+
 .article {
 
-	.panel-body .row{
-		position: relative;
-
-		.article-text p{
-			padding-right: 30px;
-		}
-	}
-
-	.panel-heading, .panel-footer{
-
-		h3, p{
-
-			margin-top: 0;
-			margin-bottom: 0;
-
-		}
-
-	}
 
 	.edit-btns{
 
@@ -29,7 +29,7 @@
 		right: 0;
 		top: 30%;
 		padding: 10px;
-		border: 1px solid #2ecc71;
+		border: 1px solid #7f8c8d;
 		border-right: none;
 		border-radius: 10px 0 0 10px;
 
@@ -38,31 +38,35 @@
 			text-decoration: none;
 		}
 
-
-
-		.glyphicon{
-			display: block;
-			margin-bottom: 10px;
-			font-size: 20px;
-
-			&:hover{
-				color: #237346;
-			}
-		}
-
 	}
 
 }
 
 
 .single-article{
-	padding: 5px;
+
+	padding-left: 0 !important;
+	padding-right: 0 !important;
 
 	a{
 		text-decoration: none !important;
+		color: black;
 	}
 
 	.author-info{
-		font-size: 12px;
+		font-size: 14px;
 	}
+
+	h2{
+		margin-top: 10px !important;
+	}
+
+	.teaser-body{
+		padding: 0 10px;
+	}
+}
+
+.comments-number{
+	font-size: 6px;
+	margin-top: 2em
 }

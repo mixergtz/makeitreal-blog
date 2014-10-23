@@ -1,17 +1,27 @@
-<div class="col-sm-5 single-article">
+<div class="col-sm-6 single-article">
 
   <%= link_to article do %>
-
-    <div>
-        <h3><%= article.title  %></h3>
-      <strong><%= pluralize(article.comments.count, "comment") %> </strong>
+    <img src="https://d262ilb51hltx0.cloudfront.net/max/600/1*O_PIB08fY8QiRRV2anlDtA.jpeg" height="350px" width="100%">
+    <div class="teaser-body">
+      <div class="row">
+        <div class="col-sm-10 col-xs-10">
+          <h2><%= article.title  %></h2>
+        </div>
+        <div class="col-sm-2 col-xs-2 comments-number">
+          <div class="stacked-icons">
+            <span class="fa-stack fa-3x">
+              <i class="fa fa-comment fa-stack-2x"></i>
+              <strong class="fa-stack-1x fa-stack-text fa-inverse"><%= article.comments.count %></strong>
+            </span>
+          </div>
+        </div>
+      </div>
+      <div>
+        <p><%= truncate(article.text, omission: "...", length: 150) %></p>
+      </div>
+      <div class="author-info">
+        <p><strong>Por <%= article.user.name %><%= article.created_at.strftime(" el %F a las %T ") %></strong></p>
+      </div>
     </div>
-    <div >
-      <p><%= truncate(article.text, omission: "...", length: 150) %></p>
-    </div>
-
   <% end %>
-  <div class="author-info">
-    <p><strong>Por <%= article.user.name %><%= article.created_at.strftime(" el %F a las %T ") %></strong></p>
-  </div>
 </div>

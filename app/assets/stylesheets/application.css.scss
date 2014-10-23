@@ -15,27 +15,44 @@
  */
 @import "bootstrap-sprockets";
 
-$brand-primary: #2c3e50;
-$dark-green: #2c3e50;
-$midnight-blue: #2c3e50;
-$link-color: $midnight-blue;
-$navbar-default-link-color:  $midnight-blue;
-$navbar-default-link-hover-color: $dark-green;
-$headings-font-family: 'Oswald', sans-serif;
-$link-hover-color: $dark-green;
+$brand-primary: white;
+$brand-second: #7f8c8d;
+$link-color: $brand-second;
+
+$headings-font-family: 'Open Sans Condensed', sans-serif;
 $btn-default-bg: $brand-primary;
-$btn-default-color: white;
-$btn-default-border: $midnight-blue;
+$btn-default-color: $brand-second;
+$btn-default-border: $brand-second;
 $body-bg: white;
+
+$navbar-default-link-color:  $brand-second;
+$navbar-default-link-hover-color: black;
+$navbar-default-bg: white;
+$navbar-default-border: white;
 
 
 @import "bootstrap";
 
 
 
+body{
+	font-family: $headings-font-family;
+	font-weight: lighter;
+	font-size: 18px;
+}
+
+.footer{
+	ul li{
+		display: inline-block;
+		list-style: none;
+		margin: 0 10px 10px 10px;
+	}
+}
+
 
 .logo, .article .panel-footer, .author-info, .volver-btn, .alert{
 	font-family: $headings-font-family;
+	font-weight: bold;
 
 }
 
@@ -52,7 +69,7 @@ $body-bg: white;
 
 .content-title{
 
-	padding: 50px 0 50px 0;
+	padding: 20px 0 30px 0;
 
 }
 
@@ -60,25 +77,30 @@ $body-bg: white;
 	font-size: 30px;
 }
 
-.btn-new-article{
+.btn-medium{
 
-	border-radius: 10px;
-	border-color: white;
+	border-radius: 20px;
+	border-color: $brand-second;
 	background-color: transparent;
 
 	a{
 		text-decoration: none;
-		color: white;
 		&:hover{
-			color: $midnight-blue;
+			color: darken($brand-second, 15%);
 		}
 	}
 
 	&:hover{
-		color: $midnight-blue;
-		border-color: $midnight-blue;
+			color: darken($brand-second, 15%);
+			border-color: darken($brand-second, 15%);
 	}
 
+
+}
+
+.btn-about-home{
+	margin: 10px 0 5px 0;
+	font-size: 14px;
 }
 
 #errors_show{
@@ -90,11 +112,14 @@ $body-bg: white;
 
 */
 
-.navbar-brand.logo:hover{
-	color: $dark-green;
+.navbar-nav > li > a {
+	padding-top: 7px;
+	padding-bottom: 7px;
+	color: #ecf0f1;
 }
 
-
+.navbar-brand.logo:hover{
+}
 
 #navbar-new{
 	width: 100%;
@@ -109,6 +134,10 @@ $body-bg: white;
 	display: inline;
 }
 
+.navbar-btn.btn-medium{
+	margin-right: 10px;
+	font-size: 18px;
+}
 
 
 /*

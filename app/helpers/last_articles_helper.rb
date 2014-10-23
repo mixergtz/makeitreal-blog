@@ -1,0 +1,2 @@
+module LastArticlesHelper
+end

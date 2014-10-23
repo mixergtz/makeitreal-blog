@@ -1,9 +1,15 @@
 Rails.application.routes.draw do
 
+  get 'most_commented' => "most_commented#index"
+
+  get "last_articles" => "last_articles#index"
+
   devise_for :users
   resources :articles do
     resources :comments
   end
+
+
 
   root 'articles#index'
 

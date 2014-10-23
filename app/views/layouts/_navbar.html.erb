@@ -1,7 +1,6 @@
 
 <nav class="navbar navbar-default" role="navigation">
 
-	<div class="container">
 
 		<!-- Brand and toggle get grouped for better mobile display -->
 		<div class="navbar-header">
@@ -22,7 +21,7 @@
 				<% if user_signed_in? %>
 
 					<% if current_user.is_writer %>
-						<li><button type="button" class="btn btn-default navbar-btn btn-new-article">
+						<li><button type="button" class="btn btn-default navbar-btn btn-medium">
 							<%= link_to new_article_path do %>
 								<span class="glyphicon glyphicon-plus"></span> Nuevo artículo
 							<% end %>
@@ -46,10 +45,8 @@
 					</li>
 					<li><%= image_tag Gravatar.new(current_user.email).image_url(s: 50), class: "img-rounded" %></li>
 				<% else %>
-					<li><%= link_to "Iniciar sesión", new_user_session_path %></li>
+					<li><%= link_to "Iniciar sesión", new_user_session_path, class: "btn btn-default navbar-btn btn-medium" %></li>
 				<% end %>
-
 			</ul>
 		</div><!-- /.navbar-collapse -->
-	</div>
 </nav>
