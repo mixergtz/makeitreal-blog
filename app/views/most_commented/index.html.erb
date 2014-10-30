@@ -1,41 +1,21 @@
 
+<%= render "shared/content_title"  %>
 
+<div class="container">
 
+  <div class="row">
 
-  <div class="text-center content-title">
-    <h1>Super Blog</h1>
-    <h4><i>Un super blog</i></h4>
-    <p><%= link_to "Qué es Super Blog", new_user_session_path, class: "btn btn-medium btn-about-home" %></p>
-  </div>
+    <div class="col-sm-10 col-sm-offset-1 home-articles">
 
-  <div class="container">
-
-    <div class="row">
-
-      <div class="col-sm-10 col-sm-offset-1 home-articles">
-
-        <div class="row home-links">
-            <div class="col-sm-1 col-xs-2 home-link ">
-              <%= link_to "Artículos", root_path  %>
-            </div>
-            <div class="col-sm-1 col-xs-2 home-link">
-              <%= link_to "Últimos artículos", last_articles_path  %>
-            </div>
-            <div class="col-sm-1 col-xs-2 home-link active">
-              <%= link_to "Más comentados", most_commented_path  %>
-            </div>
-        </div>
-
-
-      </div>
+      <%= render "shared/home_links"  %>
 
     </div>
 
+  </div>
 
-<div class="row">
+  <div class="row">
 
     <div class="col-sm-10 col-sm-offset-1">
-
 
       <div class="most-commented">
 
@@ -43,25 +23,8 @@
 
         <% @most_commented.each do |article| %>
 
+        <%= render "shared/article_list_item", article: article  %>
 
-
-        <div class="row">
-
-          <div class="col-sm-12">
-
-            <div class="list-group">
-
-              <%= link_to article, class: "list-group-item" do %>
-
-              <span class="badge"><%=  article.comments.count %></span>
-              <h4 class="list-group-item-heading"><%= article.title %></h4>
-              <p class="list-group-item-text"><%=  article.created_at.strftime("%F - %T ") %></p>
-
-              <% end %>
-
-            </div>
-          </div>
-        </div>
         <% end %>
 
       </div>
@@ -69,4 +32,5 @@
     </div>
 
   </div>
+
 </div>

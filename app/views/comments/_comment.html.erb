@@ -8,7 +8,7 @@
   </div>
 
   <div class="col-sm-2 commenter-pic text-center">
-    <%= image_tag Gravatar.new(comment.user.email).image_url(s: 70), class: "img-rounded" %>
+    <%= image_tag Gravatar.new(comment.user.email).image_url(s: 70), class: "img-circle" %>
     <p><%= comment.user.name%></p>
   </div>
 

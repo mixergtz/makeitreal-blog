@@ -25,7 +25,7 @@ $btn-default-color: $brand-second;
 $btn-default-border: $brand-second;
 $body-bg: white;
 
-$navbar-default-link-color:  $brand-second;
+$navbar-default-link-color:  black;
 $navbar-default-link-hover-color: black;
 $navbar-default-bg: white;
 $navbar-default-border: white;
@@ -39,6 +39,7 @@ body{
 	font-family: $headings-font-family;
 	font-weight: lighter;
 	font-size: 18px;
+	position: relative;
 }
 
 .footer{
@@ -50,7 +51,7 @@ body{
 }
 
 
-.logo, .article .panel-footer, .author-info, .volver-btn, .alert{
+.logo, .article .panel-footer, .volver-btn, .alert{
 	font-family: $headings-font-family;
 	font-weight: bold;
 
@@ -118,10 +119,8 @@ body{
 	color: #ecf0f1;
 }
 
-.navbar-brand.logo:hover{
-}
 
-#navbar-new{
+#navbar-default{
 	width: 100%;
 	position: absolute;
 	z-index: 2;
@@ -148,15 +147,15 @@ body{
 .alert{
 	text-align: center;
 	font-size: 18px;
-	margin-top: 80px;
 }
 
 .alert-notice{
 	background-color: $brand-primary;
+	color: green;
 }
 
 .alert-alert{
-	background-color: #e74c3c;
+	color: red;
 }
 
 /*
@@ -170,5 +169,13 @@ body{
 
 	.carousel-inner{
 		max-height: 500px;
+	}
+}
+
+.login{
+	min-height: 500px;
+
+	input{
+		font-size: 18px;
 	}
 }

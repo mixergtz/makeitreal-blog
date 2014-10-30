@@ -1,4 +1,69 @@
-  <%= render ("shared/gallery") %>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Blog</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300italic,700,300' rel='stylesheet' type='text/css'>
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+
+<nav class="navbar navbar-default article-navbar" role="navigation">
+
+
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <%= link_to("S", root_path , class: "navbar-brand logo-article") %>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse navbar-ex1-collapse">
+      <ul class="nav navbar-nav navbar-left">
+
+
+
+        <li><span class="nav-author"><%= image_tag Gravatar.new("mixergutierrez@gmail.com").image_url(s: 35), class: "img-circle navbar-btn" %> <%= @article.user.name %> el <%= @article.created_at.strftime("%e de %b")  %></span></li>
+
+
+      </ul>
+
+
+      <ul class="nav navbar-nav navbar-right">
+
+
+        <li class="recommender"><%= image_tag Gravatar.new("mixergutierrez@gmail.com").image_url(s: 35), class: "img-circle navbar-btn" %></li>
+        <li class="recommender"><%= image_tag Gravatar.new("mixergutierrez@gmail.com").image_url(s: 35), class: "img-circle navbar-btn" %></li>
+        <li class="recommender"><%= image_tag Gravatar.new("mixergutierrez@gmail.com").image_url(s: 35), class: "img-circle navbar-btn" %></li>
+        <li class="recommender"><%= image_tag Gravatar.new("mixergutierrez@gmail.com").image_url(s: 35), class: "img-circle navbar-btn" %></li>
+        <li class="recommender"><%= image_tag Gravatar.new("mixergutierrez@gmail.com").image_url(s: 35), class: "img-circle navbar-btn" %></li>
+
+        <li class="navbar-btn reading-time">8 min</li>
+        <li><%= image_tag Gravatar.new("mixergutierrez@gmail.com").image_url(s: 35), class: "img-circle navbar-btn" %></li>
+
+      </ul>
+    </div><!-- /.navbar-collapse -->
+</nav>
+
+<div class="article-image">
+  <img src="https://unsplash.imgix.net/reserve/PPE2xapKRNyy2DlTt89F_Gutman_island.jpg?q=75&fm=jpg&s=d65d0e7f397d2a59c93dbd0aa4b29603" alt="..." height="700" width="100%" >
+  <div class="image-cover"></div>
+  <div class="article-title">
+    <h1><%= @article.title %></h1>
+  </div>
+</div>
+
+
+
+
 
 <div class="container content">
 
@@ -9,26 +74,10 @@
     <br>
 
 
-    <div class="panel panel-primary">
-      <div class="panel-heading">
-        <h3><%= @article.title %></h3>
-        <p class="text-right date">Creado el <%=  @article.created_at.strftime("%F a las %T ") %></p>
-      </div>
-
-      <div class="panel-body">
-
-        <div class="row">
-
-          <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-center">
-
-            <%= image_tag Gravatar.new(@article.user.email).image_url(s: 120), class: "img-circle" %>
-            <p><strong><%= @article.user.name %></strong></p>
-
-          </div>
-
-          <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 article-text">
+          <div class="col-xs-12 article-text">
             <p><%= @article.text %></p>
           </div>
+
 
           <% if is_author? %>
             <div class="edit-btns">
@@ -37,17 +86,11 @@
             </div>
           <% end %>
 
-        </div>
-
-      </div>
-
-    </div>
 
 
 
     <hr>
-
-    <h4 class="text-center">Comentarios sobre este artículo</h4>
+    <h2 class="text-center">Comentarios sobre este artículo</h2>
     <div class="comments">
       <%= render @article.comments %>
     </div>
@@ -69,4 +112,11 @@
 
 
 </div>
+
+
+
+
+
+</body>
+</html>
 

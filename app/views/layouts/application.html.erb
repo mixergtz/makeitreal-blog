@@ -12,31 +12,29 @@
 
      <%= render ("layouts/navbar") %>
 
-  <div id="main">
-
-
-    <%#= render ("layouts/navbar_medium") %>
-
+<div class="row">
     <div class="col-sm-8 col-sm-offset-2">
       <% flash.each do |name, msg| -%>
       <%= content_tag :div, msg, class: "alert alert-#{name}" %>
       <% end %>
     </div>
+</div>
 
-      <%= yield %>
+<div id="main" class="row">
 
+  <%= yield %>
 
-    <div class="col-sm-10 col-sm-offset-1 footer">
-      <hr>
-      <ul>
-        <li><a href="#">Super Blog</a></li>
-        <li><a href="#">Un link</a></li>
-        <li><a href="#">Un link</a></li>
-        <li><a href="#">Un link</a></li>
-      </ul>
-
-    </div>
+  <div class="col-sm-10 col-sm-offset-1 footer">
+    <hr>
+    <ul>
+      <li><a href="#">Super Blog</a></li>
+      <li><a href="#">Un link</a></li>
+      <li><a href="#">Un link</a></li>
+      <li><a href="#">Un link</a></li>
+    </ul>
   </div>
+
+</div>
 
 </body>
 </html>
