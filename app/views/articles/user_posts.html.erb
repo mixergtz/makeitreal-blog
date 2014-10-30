@@ -1,0 +1,61 @@
+<div class="container">
+
+  <div class="col-xs-10 col-xs-offset-1">
+
+    <% @articles.each do |article| %>
+
+    <div class="row">
+
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 article ">
+
+        <div class="panel panel-primary">
+          <div class="panel-heading">
+
+            <%= link_to article do %>
+
+            <h3><%= article.title  %></h3>
+            <p class="text-right date"><%=  article.created_at.strftime("%F - %T ") %></p>
+
+            <% end %>
+
+          </div>
+          <div class="panel-body">
+
+
+              <div class="row">
+
+                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-center">
+
+                    <%= image_tag Gravatar.new(article.user.email).image_url(s: 120), class: "img-circle" %>
+                    <p><strong><%= article.user.name %></strong></p>
+
+                </div>
+
+                <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+                    <p><%= article.text %></p>
+                </div>
+
+              </div>
+
+
+          </div>
+          <div class="panel-footer">
+            <p class="text-right"><%= pluralize(article.comments.count, "comment") %></p>
+          </div>
+        </div>
+
+
+      </div>
+
+    </div>
+
+    <br>
+
+    <% end %>
+
+  </div>
+
+
+</div>
+
+

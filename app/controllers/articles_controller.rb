@@ -48,32 +48,37 @@ class ArticlesController < ApplicationController
     redirect_to articles_path
   end
 
+  def my_posts
+    @articles = current_user.articles
+    render "user_posts"
+  end
+
   private
 
-  def get_article
-    @article = Article.find(params[:id])
-  end
-
-  def article_params
-    params.require(:article).permit(:title,:text)
-  end
-
-  def is_writer?
-    unless current_user.is_writer
-      flash[:alert] = "No estas habilitado para crear articulos :("
-      redirect_to articles_path
+    def get_article
+      @article = Article.find(params[:id])
     end
-  end
 
-  def is_author?
-    @article.user == current_user
-  end
-
-  def redirect_if_not_author
-    unless is_author?
-      flash[:alert] = "No eres el autor de este artículo"
-      redirect_to @article
+    def article_params
+      params.require(:article).permit(:title,:text)
     end
-  end
+
+    def is_writer?
+      unless current_user.is_writer
+        flash[:alert] = "No estas habilitado para crear articulos :("
+        redirect_to articles_path
+      end
+    end
+
+    def is_author?
+      @article.user == current_user
+    end
+
+    def redirect_if_not_author
+      unless is_author?
+        flash[:alert] = "No eres el autor de este artículo"
+        redirect_to @article
+      end
+    end
 
 end
