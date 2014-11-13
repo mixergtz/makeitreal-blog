@@ -28,7 +28,7 @@
             <p><%= @article.text %></p>
           </div>
 
-          <% if is_author? %>
+          <% if author? %>
             <div class="edit-btns">
               <%= link_to raw("<span class='glyphicon glyphicon-pencil'></span>"), edit_article_path(@article)  %>
               <%= link_to raw("<span class='glyphicon glyphicon-trash'></span>"), @article, method: :delete, confirm: "Esta seguro de eliminar este artículo?"   %>
