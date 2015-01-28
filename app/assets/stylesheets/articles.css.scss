@@ -72,8 +72,12 @@
 }
 
 .article-list-item{
-	padding: 50px inherit;
+	padding: 30px inherit;
 	border-bottom: 1px solid black;
+
+	.article-text-preview a{
+		text-decoration: none;
+	}
 }
 
 nav.article-navbar{
