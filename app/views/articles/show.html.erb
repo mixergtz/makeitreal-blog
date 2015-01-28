@@ -54,7 +54,9 @@
 </nav>
 
 <div class="article-image">
-  <img src="https://unsplash.imgix.net/reserve/PPE2xapKRNyy2DlTt89F_Gutman_island.jpg?q=75&fm=jpg&s=d65d0e7f397d2a59c93dbd0aa4b29603" alt="..." height="700" width="100%" >
+  <!-- <img src="https://unsplash.imgix.net/reserve/PPE2xapKRNyy2DlTt89F_Gutman_island.jpg?q=75&fm=jpg&s=d65d0e7f397d2a59c93dbd0aa4b29603" alt="..." height="700" width="100%" > -->
+  <%= image_tag @article.try(:image), { height: "700", width: "100%" } %>
+
   <div class="image-cover"></div>
   <div class="article-title">
     <h1><%= @article.title %></h1>
