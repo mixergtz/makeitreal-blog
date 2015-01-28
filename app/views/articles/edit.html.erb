@@ -1,9 +1,12 @@
- <div class="row ">
-			<%= link_to raw("<span class='glyphicon glyphicon-arrow-left'></span> Volver"), articles_path , class: "btn btn-primary volver-btn" %>
+<div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 col-md-offset-2">
+
+  <div class="row ">
+  			<%= link_to raw("<span class='glyphicon glyphicon-arrow-left'></span> Volver"), articles_path , class: "btn btn-default volver-btn" %>
+
+  </div>
+
+   <h1>Editar artículo</h1>
+
+  <%= render 'form' %>
 
 </div>
-
- <h1>Editar artículo</h1>
-
-<%= render 'form' %>
-
