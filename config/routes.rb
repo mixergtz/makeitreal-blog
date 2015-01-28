@@ -13,7 +13,7 @@ Rails.application.routes.draw do
 
   get "what_is" => "static#what_is"
   get "team" => "static#team"
-  get "contact" => "static#contac"
+  get "contact" => "static#contact"
 
   root 'articles#index'
 
