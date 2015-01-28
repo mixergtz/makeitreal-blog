@@ -9,7 +9,8 @@
 
       <%= render "shared/home_links"  %>
 
-      <div class="row">
+      <div class="row articles-preview">
+
         <% @articles.each do |article| %>
 
         <%= render 'shared/article_list_item', article: article %>
