@@ -16,7 +16,6 @@
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= image_tag Gravatar.new(current_user.email).image_url(s: 40), class: "img-circle", title: current_user.name %> <b class="caret"></b></a>
           <ul class="dropdown-menu">
-
             <% if current_user.is_writer %>
             <li><a href="#">Articulos</a></li>
             <% end %>
