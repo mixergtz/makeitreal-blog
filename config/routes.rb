@@ -2,18 +2,18 @@ Rails.application.routes.draw do
 
   mount Bootsy::Engine => '/bootsy', as: 'bootsy'
 
-  get 'most_commented' => "most_commented#index"
-  get "last_articles" => "last_articles#index"
-
   devise_for :users
 
   resources :articles do
     resources :comments
   end
 
+  get 'most_commented' => "most_commented#index"
+  get "last_articles" => "last_articles#index"
   get "what_is" => "static#what_is"
   get "team" => "static#team"
   get "contact" => "static#contact"
+  get "my_articles" => "articles#my_articles"
 
   root 'articles#index'
 

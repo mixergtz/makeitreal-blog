@@ -3,7 +3,7 @@ class ArticlesController < ApplicationController
   helper_method :is_author?
   before_action :authenticate_user!, except: [:index, :show]
   before_action :redirect_if_not_author, only: [:edit, :update, :destroy]
-  before_action :is_writer?, only: [:new, :create]
+  before_action :is_writer?, only: [:new, :create, :my_articles]
 
   def index
     @articles = Article.all
@@ -44,6 +44,10 @@ class ArticlesController < ApplicationController
     @article.destroy
     flash[:alert] = "Artículo eliminado"
     redirect_to articles_path
+  end
+
+  def my_articles
+    @articles = current_user.articles
   end
 
   private
